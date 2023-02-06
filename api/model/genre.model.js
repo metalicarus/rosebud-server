@@ -8,11 +8,9 @@ Genre.init({
   name: { type: Sequelize.STRING, allowNull: false },
 }, { sequelize });
 
-Movie.belongsToMany(Genre, {
-  through: 'MovieGenres',
-  foreignKey: 'movieId',
-  otherKey: 'genreId',
-});
+Genre.belongsToMany(Movie, { through: 'MovieGenres', foreignKey: 'movieId', otherKey: 'genreId' });
+Movie.belongsToMany(Genre, { through: 'MovieGenres', foreignKey: 'movieId', otherKey: 'genreId' });
+
 
 module.exports = {
   Genre
